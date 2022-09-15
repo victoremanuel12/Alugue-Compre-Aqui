@@ -1,10 +1,10 @@
 import { Box, Flex, Spacer, Text } from '@chakra-ui/layout';
 import { Avatar } from '@chakra-ui/avatar';
 import { FaBed, FaBath } from 'react-icons/fa';
-import { BsBoxArrowDownLeft, BsGridFill } from 'react-icons/bs';
+import {  BsGridFill } from 'react-icons/bs';
 import { GoVerified } from 'react-icons/go';
 import millify from 'millify';
-import ImageScroll from '../../components/ImageScroll';
+import ImageScrollbar from '../../components/ImageScroll';
 
 import { baseUrl, fetchApi } from '../../utils/fetchApi';
 
@@ -23,9 +23,10 @@ const PropertyDetails = ({
     amenities,
     photos }
 }) => (
-  <Box maxWidth="1000px" margin="auto" p="4">
-    {photos && <ImageScroll data={photos} />}
-    <Box w="full" p="6">
+  <Box maxWidth="1000px" margin="auto" p="4" marginTop="110">
+   
+   <Box> {photos && <ImageScrollbar data={photos} />}</Box>
+    <Box w="full" p="15">
       <Flex paddingTop="2" alignItems="center" justifyContent="space-between" >
         <Flex alignItems="center">
           <Box paddingRight="3" color='green.400'> {isVerified && <GoVerified />}</Box>
@@ -69,7 +70,7 @@ const PropertyDetails = ({
         <Flex flexWrap="wrap">
           {amenities.map(item => (
             item.amenities.map(amenity => (
-              <Text
+              <Text marginBottom="40"
                 key={amenity.text}
                 color="blue.400"
                 fontSize="l"
